@@ -1,7 +1,7 @@
 class AppImages {
   // PNG
   static const String initialPhoto = "assets/img/initial_photo.png";
-  static const String onBoardingPhoto = "assets/img/onBoardingPhoto.png";
+  static const String onBoardingPhoto = "assets/img/onBoarding.jpg";
   static const String onBoardingSecond = "assets/img/on_boarding2.png";
   static const String flag1 = "assets/img/can.png";
   static const String flag2 = "assets/img/eng.png";

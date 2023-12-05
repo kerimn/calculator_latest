@@ -2,6 +2,7 @@ import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/screens/on_boarding_screen2.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -79,11 +80,14 @@ class OnBoardingScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom:16.0),
+                    padding: const EdgeInsets.only(bottom: 16.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
+                          onTap: () {
+                            _launchURL();
+                          },
                           child: Text(
                             "Terms of Use",
                             style: Theme.of(context)
@@ -96,15 +100,26 @@ class OnBoardingScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 20),
-                        Text(
-                          "|",
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                              color: Colors.grey,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400),
+                        GestureDetector(
+                          onTap: () {
+                            _launchURL();
+                          },
+                          child: Text(
+                            "|",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(
+                                    color: Colors.grey,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400),
+                          ),
                         ),
                         const SizedBox(width: 20),
                         GestureDetector(
+                          onTap: () {
+                            _launchURL();
+                          },
                           child: Text(
                             "Privacy Policy",
                             style: Theme.of(context)
@@ -126,5 +141,12 @@ class OnBoardingScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+_launchURL() async {
+  final Uri url = Uri.parse('https://google.com');
+  if (!await launchUrl(url)) {
+    throw Exception('Could not launch $url');
   }
 }

@@ -2,7 +2,8 @@ import 'package:calculator/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class InfoWidget extends StatelessWidget {
-  const InfoWidget({super.key});
+  const InfoWidget({super.key, required this.totalAmount});
+  final String totalAmount;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class InfoWidget extends StatelessWidget {
                   ),
             ),
             Text(
-              "15 000\$",
+              "$totalAmount\$",
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!

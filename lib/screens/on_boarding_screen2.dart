@@ -2,6 +2,7 @@ import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/screens/my_app.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OnBoardingSecondScreen extends StatelessWidget {
   const OnBoardingSecondScreen({super.key});
@@ -83,6 +84,9 @@ class OnBoardingSecondScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
+                          onTap: () {
+                            _launchURL();
+                          },
                           child: Text(
                             "Terms of Use",
                             style: Theme.of(context)
@@ -97,13 +101,19 @@ class OnBoardingSecondScreen extends StatelessWidget {
                         const SizedBox(width: 20),
                         Text(
                           "|",
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                              color: Colors.grey,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400),
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(
+                                  color: Colors.grey,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400),
                         ),
                         const SizedBox(width: 20),
                         GestureDetector(
+                          onTap: () {
+                            _launchURL();
+                          },
                           child: Text(
                             "Privacy Policy",
                             style: Theme.of(context)
@@ -125,5 +135,12 @@ class OnBoardingSecondScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+_launchURL() async {
+  final Uri url = Uri.parse('https://google.com');
+  if (!await launchUrl(url)) {
+    throw Exception('Could not launch $url');
   }
 }

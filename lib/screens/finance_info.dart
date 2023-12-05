@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/widgets/chart_widget.dart';
@@ -33,46 +32,48 @@ class FincanceInfoscreen extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            const Expanded(
-              flex: 6,
-              child: ChartWidget(),
-            ),
-            const SizedBox(height: 35),
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: FinanceCardWidget(),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: FinanceCardWidget(),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: FinanceCardWidget(),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: FinanceCardWidget(),
-                      ),
-                    ],
-                  ),
-                ],
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              const Expanded(
+                flex: 6,
+                child: ChartWidget(),
               ),
-            ),
-          ],
+              const SizedBox(height: 35),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: FinanceCardWidget(),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: FinanceCardWidget(),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: FinanceCardWidget(),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: FinanceCardWidget(),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

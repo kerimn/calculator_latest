@@ -17,64 +17,66 @@ class SettingsScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            ListTile(
-              title: Text(
-                'Set reminders',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: ListView(
+            children: [
+              ListTile(
+                title: Text(
+                  'Set reminders',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
               ),
-            ),
-            _buildDivider(),
-            ListTile(
-              title: Text(
-                'Privacy Policy',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+              _buildDivider(),
+              ListTile(
+                title: Text(
+                  'Privacy Policy',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
               ),
-              onTap: () {},
-            ),
-            _buildDivider(),
-            ListTile(
-              title: Text(
-                'Terms of Use',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+              _buildDivider(),
+              ListTile(
+                title: Text(
+                  'Terms of Use',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
               ),
-              onTap: () {},
-            ),
-            _buildDivider(),
-            ListTile(
-              title: Text(
-                'Subscription Information',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+              _buildDivider(),
+              ListTile(
+                title: Text(
+                  'Subscription Information',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
               ),
-              onTap: () {},
-            ),
-            _buildDivider(),
-            ListTile(
-              title: Text(
-                'Rate our app in the AppStore',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+              _buildDivider(),
+              ListTile(
+                title: Text(
+                  'Rate our app in the AppStore',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
               ),
-              onTap: () {},
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

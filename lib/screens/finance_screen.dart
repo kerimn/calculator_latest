@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:calculator/constants/colors.dart';
 import 'package:calculator/screens/finance_info.dart';
 import 'package:calculator/widgets/custom_grid_view.dart';
@@ -58,53 +57,55 @@ class FinanceScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(9),
-                  border: Border.all(
-                    color: const Color(0xFFDDDDDD),
-                    width: 1,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 70,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            child: SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                getRandomFlag(),
-                                fit: BoxFit.cover,
-                                width: 30,
-                                height: 30,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: 25,
-                            child: SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                getRandomFlag(),
-                                fit: BoxFit.cover,
-                                width: 30,
-                                height: 30,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+              child: SafeArea(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9),
+                    border: Border.all(
+                      color: const Color(0xFFDDDDDD),
+                      width: 1,
                     ),
-                    Text("GBPJPY",
-                        style: Theme.of(context).textTheme.titleMedium)
-                  ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 70,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              child: SizedBox(
+                                width: 30,
+                                height: 30,
+                                child: Image.asset(
+                                  getRandomFlag(),
+                                  fit: BoxFit.cover,
+                                  width: 30,
+                                  height: 30,
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              left: 25,
+                              child: SizedBox(
+                                width: 30,
+                                height: 30,
+                                child: Image.asset(
+                                  getRandomFlag(),
+                                  fit: BoxFit.cover,
+                                  width: 30,
+                                  height: 30,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Text("GBPJPY",
+                          style: Theme.of(context).textTheme.titleMedium)
+                    ],
+                  ),
                 ),
               ),
               //  ProductsCard(categoryItem: categoryItem),

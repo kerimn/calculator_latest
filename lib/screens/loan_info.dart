@@ -1,17 +1,26 @@
 import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
+import 'package:calculator/data/mortgage_model.dart';
+import 'package:calculator/provider/mortgage_controller.dart';
 import 'package:calculator/screens/add_payment.dart';
 import 'package:calculator/widgets/buttons.dart';
 import 'package:calculator/widgets/half_circular_progress_bar.dart';
 import 'package:calculator/widgets/info_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class LoanInfo extends StatelessWidget {
-  const LoanInfo({super.key});
+  const LoanInfo({super.key, required this.mortgageItem});
+
+  final Mortgage mortgageItem;
 
   @override
   Widget build(BuildContext context) {
+    var orientation = MediaQuery.of(context).orientation;
+    double paddingTop = (orientation == Orientation.portrait) ? 0 : 80.0;
+    var mortgage = context.watch<MortgageController>();
+
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 40,
@@ -35,10 +44,10 @@ class LoanInfo extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const AddPayment()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const AddPayment()),
+              // );
             },
             icon: SvgPicture.asset(
               AppImages.editIcon,
@@ -48,24 +57,42 @@ class LoanInfo extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
               children: [
-                CircleWidget(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: paddingTop, bottom: 10),
+                      child: const CircleWidget(),
+                    ),
+                  ],
+                ),
+                InfoWidget(
+                  totalAmount: mortgageItem.loan.toString(),
+                ),
+                const SizedBox(height: 30),
               ],
             ),
-            const InfoWidget(),
-            const SizedBox(height: 30),
-            const ButtonsWidget(),
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        color: bgColor,
+        height: 125,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            ButtonsWidget(mortgageID: mortgageItem.id),
             const SizedBox(height: 10),
             GestureDetector(
               onTap: () {},
               child: Container(
+                height: 60,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: const Color.fromRGBO(219, 0, 0, 0.02),
@@ -73,6 +100,7 @@ class LoanInfo extends StatelessWidget {
                 ),
                 child: GestureDetector(
                   onTap: () {
+                    mortgage.deleteMortgage(mortgageItem);
                     Navigator.pop(context);
                   },
                   child: SizedBox(
@@ -108,13 +136,13 @@ class CircleWidget extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width / 2.2,
-          padding: const EdgeInsets.symmetric(vertical: 30),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: const HalfCircularProgressBar(
-            progress: 0.5,
+            progress: 0.6,
           ),
         ),
         Positioned(
-          bottom: 55,
+          bottom: 30,
           child: Text(
             "8 235.23\$",
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
@@ -123,7 +151,7 @@ class CircleWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 35,
+          bottom: 15,
           child: Text(
             "Paid",
             style: Theme.of(context)

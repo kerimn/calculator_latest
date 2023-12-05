@@ -50,11 +50,13 @@ class CustomTabWidget extends StatelessWidget {
               ),
             ),
           ),
-          body: const TabBarView(
-            children: [
-              Center(child: SizedBox()),
-              Center(child: SizedBox()),
-            ],
+          body: const SafeArea(
+            child: TabBarView(
+              children: [
+                Center(child: SizedBox()),
+                Center(child: SizedBox()),
+              ],
+            ),
           ),
         ),
       ),

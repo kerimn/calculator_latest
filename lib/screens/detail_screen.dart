@@ -29,10 +29,12 @@ class DetailsScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: MyDynamicTextFieldList(),
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: MyDynamicTextFieldList(),
+          ),
         ),
       ),
     );
