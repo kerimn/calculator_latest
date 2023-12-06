@@ -68,7 +68,40 @@ class LoanInfo extends StatelessWidget {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(top: paddingTop, bottom: 10),
-                      child: const CircleWidget(),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width / 2.2,
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: const HalfCircularProgressBar(
+                              progress: 0.6,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 30,
+                            child: Text(
+                              '${mortgageItem.loan} \$',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(
+                                    fontSize: 16,
+                                  ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 15,
+                            child: Text(
+                              "Paid",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(color: Colors.grey, fontSize: 12),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -120,47 +153,6 @@ class LoanInfo extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class CircleWidget extends StatelessWidget {
-  const CircleWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-          width: MediaQuery.of(context).size.width / 2.2,
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: const HalfCircularProgressBar(
-            progress: 0.6,
-          ),
-        ),
-        Positioned(
-          bottom: 30,
-          child: Text(
-            "8 235.23\$",
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontSize: 16,
-                ),
-          ),
-        ),
-        Positioned(
-          bottom: 15,
-          child: Text(
-            "Paid",
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(color: Colors.grey, fontSize: 12),
-          ),
-        ),
-      ],
     );
   }
 }

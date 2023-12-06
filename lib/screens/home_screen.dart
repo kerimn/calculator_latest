@@ -1,6 +1,7 @@
 import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/data/mortgage_model.dart';
+import 'package:calculator/data/payment.dart';
 import 'package:calculator/provider/mortgage_controller.dart';
 import 'package:calculator/screens/add_loan.dart';
 import 'package:calculator/screens/loan_info.dart';
@@ -220,92 +221,113 @@ class HomeScreen extends StatelessWidget {
                     ),
               ),
               const SizedBox(height: 35),
-              mortgage.payments.isEmpty
-                  ? Expanded(
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "No transactions yet",
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(fontSize: 13),
-                            ),
-                            Text(
-                              "In the future, your mortgage payments will be \n displayed here",
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(fontWeight: FontWeight.normal),
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  : Expanded(
-                      child: SizedBox(
-                        height: 500,
-                        child: ListView.separated(
-                            physics: const BouncingScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  color: bgColor,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                              'Payment ${mortgage.items[mortgage.indexList[index]].name}',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleSmall),
-                                          const SizedBox(height: 7),
-                                          Text(
-                                              '${formatDate(mortgage.items[mortgage.indexList[index]].dateTime)} | 16:09',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleSmall!
-                                                  .copyWith(
-                                                      fontSize: 10,
-                                                      color: Colors.grey))
-                                        ],
-                                      ),
-                                      Text("- \$${mortgage.payments[index]}",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleMedium!
-                                              .copyWith(color: mainColor))
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                            separatorBuilder: (context, index) =>
-                                const SizedBox(height: 50),
-                            itemCount: mortgage.payments.length),
-                      ),
-                    )
+              Consumer<MortgageController>(
+                builder: (context, provider, child) {
+                  List<Payment> allPayments = provider.getAllPayments();
+                  print(allPayments);
+
+                  return YourWidget();
+                },
+              ),
             ],
           ),
         ),
       ),
     );
   }
+}
 
-  String formatDate(DateTime dateTime) {
-    // Use the `intl` package to format the date
-    var formatter = DateFormat('dd MM yyyy');
-    return formatter.format(dateTime);
+String formatDate(DateTime dateTime) {
+  // Use the `intl` package to format the date
+  var formatter = DateFormat('dd MM yyyy');
+  return formatter.format(dateTime);
+}
+
+class YourWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    MortgageController provider = Provider.of<MortgageController>(context);
+    List<Payment> allPayments = provider.getAllPayments();
+    print(allPayments);
+
+    return allPayments.isEmpty
+        ? Expanded(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "No transactions yet",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(fontSize: 13),
+                  ),
+                  Text(
+                    "In the future, your mortgage payments will be \n displayed here",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(fontWeight: FontWeight.normal),
+                  ),
+                ],
+              ),
+            ),
+          )
+        : Expanded(
+            child: SizedBox(
+              height: 500,
+              child: ListView.separated(
+                itemCount: provider.totalPaymentCount,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  // Use a Column to display all the ListTile widgets vertically
+                  return GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      color: bgColor,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                provider.allPayments[index].mortgage!.name,
+                                style: Theme.of(context).textTheme.titleSmall,
+                              ),
+                              const SizedBox(height: 7),
+                              Text(
+                                '${formatDate(provider.allPayments[index].mortgage!.dateTime)} | 16:09',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleSmall!
+                                    .copyWith(
+                                      fontSize: 10,
+                                      color: Colors.grey,
+                                    ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "- \$${provider.allPayments[index].payment}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(color: mainColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 50),
+              ),
+            ),
+          );
   }
 }

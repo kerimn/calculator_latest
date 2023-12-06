@@ -1,3 +1,5 @@
+import 'package:calculator/data/payment.dart';
+
 class Mortgage {
   int id;
   String name;
@@ -5,7 +7,7 @@ class Mortgage {
   int percentage;
   int month;
   DateTime dateTime;
-  double? payment;
+  List<Payment>? payment;
 
   Mortgage({
     required this.id,
@@ -16,4 +18,6 @@ class Mortgage {
     required this.dateTime,
     this.payment,
   });
+
+  int get paymentCount => payment?.length ?? 0;
 }

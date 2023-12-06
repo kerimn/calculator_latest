@@ -74,6 +74,8 @@ class _AddPaymentState extends State<AddPayment> {
                       ),
                       onChanged: (value) {
                         print(_controller.text);
+                        mortgage.updatePaymentFieldValue(
+                            double.parse(_controller.text));
                       },
                     ),
                   ),
@@ -84,11 +86,11 @@ class _AddPaymentState extends State<AddPayment> {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    print(mortgage.firstPaymentValue.runtimeType);
-                    mortgage.updatePaymentFieldValue(
-                        widget.mortgageID, double.parse(_controller.text));
-                    //  print(mortgage.addPaymentById(mortgageID)) ;
-                    // Navigator.pop(context);
+                    // print(mortgage.firstPaymentValue.runtimeType);
+                    // mortgage.updatePaymentFieldValue(
+                    //     double.parse(_controller.text));
+                    mortgage.addPaymentById(widget.mortgageID);
+                    Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

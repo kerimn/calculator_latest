@@ -1,5 +1,6 @@
 import 'dart:collection';
 import 'package:calculator/data/mortgage_model.dart';
+import 'package:calculator/data/payment.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -8,17 +9,31 @@ class MortgageController extends ChangeNotifier {
   Random random = Random();
   UnmodifiableListView<Mortgage> get items => UnmodifiableListView(_items);
 
-  final List<double> _payments = [];
-  final List<int> _indexList = [];
-  UnmodifiableListView<double> get payments => UnmodifiableListView(_payments);
-  UnmodifiableListView<int> get indexList => UnmodifiableListView(_indexList);
+  int get totalPaymentCount =>
+      _items.fold<int>(0, (count, mortgage) => count + (mortgage.paymentCount));
+
+  UnmodifiableListView<Payment> get allPayments =>
+      UnmodifiableListView(getAllPayments());
+
+  List<Payment> getAllPayments() {
+    // Create a flat list of all payments across all mortgages
+    List<Payment> allPayments = [];
+    for (var mortgage in _items) {
+      allPayments.addAll(mortgage.payment ?? []);
+    }
+    return allPayments;
+  }
+  // final List<double> _payments = [];
+  // final List<int> _indexList = [];
+  // UnmodifiableListView<double> get payments => UnmodifiableListView(_payments);
+  // UnmodifiableListView<int> get indexList => UnmodifiableListView(_indexList);
 
   String nameFieldValue = '';
   String loanFieldValue = '';
   String percentageFieldValue = '';
   String monthFieldValue = '';
   String firstPaymentValue = '';
-  double? paymentFieldValue = 0.0;
+  double paymentFieldValue = 0.0;
 
   int index(int search) {
     return _items.indexWhere((model) => model.id == search);
@@ -39,29 +54,32 @@ class MortgageController extends ChangeNotifier {
   }
 
   void deleteMortgage(Mortgage mortgage) {
+    // payments.remove(mortgage);
     _items.remove(mortgage);
     notifyListeners();
   }
 
   void addPaymentById(int mortgageId) {
     // Find the mortgage with the given ID
+    Payment payment1 = Payment(id: mortgageId, payment: paymentFieldValue);
     Mortgage mortgage =
         _items.firstWhere((mortgage) => mortgage.id == mortgageId);
+    // mortgage.payment = [payment1];
+
+    payment1.associateWithMortgage(mortgage);
 
     // Notify listeners
-    print("${mortgage.id} / ${mortgage.payment}");
+    print("${mortgage.payment} / ${mortgage.payment}");
     notifyListeners();
   }
 
-  void updatePaymentFieldValue(int item, double value) {
+  void updatePaymentFieldValue(double value) {
     // print(paymentFieldValue);
     paymentFieldValue = value;
-    print(paymentFieldValue);
-    int indexAdd = index(item);
 
     // _items[indexAdd].payment!.add(value);
-    _payments.add(value);
-    _indexList.add(indexAdd);
+    // _payments.add(value);
+    // _indexList.add(indexAdd);
     // print(_items[indexAdd]);
     notifyListeners();
   }
