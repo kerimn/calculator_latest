@@ -31,13 +31,13 @@ class OnBoardingSecondScreen extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "We value your feedback",
+                        "Wir schätzen Ihr Feedback",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(height: 17),
                       Text(
-                        "Every day we are getting better due to your ratings and reviews — that helps us protect your accounts.",
+                        "Dank Ihrer Bewertungen und Rezensionen werden wir jeden Tag besser – das hilft uns, Ihre Konten zu schützen.",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                               color: Colors.grey,
@@ -70,7 +70,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      "Continue",
+                      "Weitermachen",
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             color: Colors.white,
                             fontSize: 13,
@@ -88,7 +88,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
                             _launchURL();
                           },
                           child: Text(
-                            "Terms of Use",
+                            "Nutzungsbedingungen",
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
@@ -115,7 +115,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
                             _launchURL();
                           },
                           child: Text(
-                            "Privacy Policy",
+                            "Datenschutzrichtlinie",
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!

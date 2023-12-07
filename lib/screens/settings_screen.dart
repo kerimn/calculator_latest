@@ -13,7 +13,7 @@ class SettingsScreen extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Text(
-          "Settings",
+          "Einstellungen",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -24,7 +24,7 @@ class SettingsScreen extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(
-                  'Set reminders',
+                  'Erinnerungen festlegen',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
@@ -34,18 +34,7 @@ class SettingsScreen extends StatelessWidget {
               _buildDivider(),
               ListTile(
                 title: Text(
-                  'Privacy Policy',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
-                ),
-                onTap: () {},
-              ),
-              _buildDivider(),
-              ListTile(
-                title: Text(
-                  'Terms of Use',
+                  'Datenschutzrichtlinie',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
@@ -56,7 +45,7 @@ class SettingsScreen extends StatelessWidget {
               _buildDivider(),
               ListTile(
                 title: Text(
-                  'Subscription Information',
+                  'Nutzungsbedingungen',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
@@ -67,7 +56,18 @@ class SettingsScreen extends StatelessWidget {
               _buildDivider(),
               ListTile(
                 title: Text(
-                  'Rate our app in the AppStore',
+                  'Abonnementinformationen',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
+              ),
+              _buildDivider(),
+              ListTile(
+                title: Text(
+                  'Bewerten Sie unsere App im AppStore',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!

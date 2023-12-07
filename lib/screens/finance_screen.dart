@@ -29,7 +29,7 @@ class FinanceScreen extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Text(
-          "FINANCE",
+          "FINANZEN",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -102,7 +102,7 @@ class FinanceScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Text("GBPJPY",
+                      Text("GBP/JPY",
                           style: Theme.of(context).textTheme.titleMedium)
                     ],
                   ),

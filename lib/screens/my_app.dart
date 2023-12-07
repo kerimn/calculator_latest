@@ -44,7 +44,7 @@ class _MyAppPageState extends State<MyAppPage> {
                   color: currentIndex == 0 ? mainColor : Colors.grey,
                 ),
               ),
-              label: 'MORTGAGE',
+              label: 'HYPOTHEK',
             ),
             BottomNavigationBarItem(
               icon: Padding(
@@ -54,7 +54,7 @@ class _MyAppPageState extends State<MyAppPage> {
                   color: currentIndex == 1 ? mainColor : Colors.grey,
                 ),
               ),
-              label: 'FINANCE',
+              label: 'FINANZEN',
             ),
             BottomNavigationBarItem(
               icon: Padding(
@@ -62,7 +62,7 @@ class _MyAppPageState extends State<MyAppPage> {
                 child: SvgPicture.asset(AppImages.settings,
                     color: currentIndex == 2 ? mainColor : Colors.grey),
               ),
-              label: 'SETTINGS',
+              label: 'EINSTELLUNGEN',
             ),
           ],
           selectedItemColor: mainColor,

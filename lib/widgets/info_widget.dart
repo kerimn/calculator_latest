@@ -13,7 +13,7 @@ class InfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Current payment",
+              "Aktuelle Zahlung",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -33,7 +33,7 @@ class InfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Total loan amount",
+              "Gesamtkreditbetrag",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -59,7 +59,7 @@ class InfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Paid interest",
+              "Bezahlte Zinsen",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -79,7 +79,7 @@ class InfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Remaining interest",
+              "Verbleibendes Interesse",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -99,7 +99,7 @@ class InfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Total loan amount",
+              "Gesamtkreditbetrag",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -125,7 +125,7 @@ class InfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Total Free",
+              "Völlig kostenlos",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -145,7 +145,7 @@ class InfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Total Insurance",
+              "Gesamtversicherung",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,

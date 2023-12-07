@@ -31,7 +31,7 @@ class LoanScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "ADD MORTAGE",
+          "Hypothek hinzufügen",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         actions: [
@@ -63,7 +63,7 @@ class LoanScreen extends StatelessWidget {
                   mortgage.updateNameFieldValue(value);
                 },
                 decoration: InputDecoration(
-                  hintText: "Title",
+                  hintText: "Titel",
                   hintStyle: TextStyle(color: borderColor, fontSize: 12),
                   contentPadding: const EdgeInsets.only(left: 16),
                   enabledBorder: UnderlineInputBorder(
@@ -88,7 +88,7 @@ class LoanScreen extends StatelessWidget {
                         FilteringTextInputFormatter.digitsOnly
                       ],
                       decoration: InputDecoration(
-                        hintText: "Amount",
+                        hintText: "Menge",
                         hintStyle: TextStyle(color: borderColor, fontSize: 12),
                         contentPadding: const EdgeInsets.only(left: 16),
                         enabledBorder: UnderlineInputBorder(
@@ -140,7 +140,7 @@ class LoanScreen extends StatelessWidget {
                         FilteringTextInputFormatter.digitsOnly
                       ],
                       decoration: InputDecoration(
-                        hintText: "Term",
+                        hintText: "Begriff",
                         hintStyle: TextStyle(color: borderColor, fontSize: 12),
                         contentPadding: const EdgeInsets.only(left: 16),
                         enabledBorder: UnderlineInputBorder(
@@ -164,7 +164,7 @@ class LoanScreen extends StatelessWidget {
                         FilteringTextInputFormatter.digitsOnly
                       ],
                       decoration: InputDecoration(
-                        hintText: "First payment",
+                        hintText: "Erste Zahlung",
                         hintStyle: TextStyle(color: borderColor, fontSize: 12),
                         contentPadding: const EdgeInsets.only(left: 16),
                         enabledBorder: UnderlineInputBorder(
@@ -180,7 +180,7 @@ class LoanScreen extends StatelessWidget {
               ),
               const SizedBox(height: 35),
               Text(
-                "Payment type",
+                "Zahlungsart",
                 textAlign: TextAlign.start,
                 style: Theme.of(context)
                     .textTheme
@@ -211,7 +211,7 @@ class LoanScreen extends StatelessWidget {
                           horizontal: 20, vertical: 10),
                     ),
                     child: Text(
-                      'ADD LOAN',
+                      'Darlehen hinzufügen',
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             fontSize: 13,
                             color: bgColor,

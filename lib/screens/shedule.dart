@@ -25,7 +25,7 @@ class ScheduleScreen extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
           title: Text(
-            "SCHEDULE",
+            "ZEITPLAN",
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
@@ -49,7 +49,7 @@ class ScheduleScreen extends StatelessWidget {
                                 bottom: 10,
                               ),
                               child: Text(
-                                "Date",
+                                "Datum",
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme
@@ -64,7 +64,7 @@ class ScheduleScreen extends StatelessWidget {
                                 bottom: 10,
                               ),
                               child: Text(
-                                "Amount",
+                                "Menge",
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme
@@ -79,7 +79,7 @@ class ScheduleScreen extends StatelessWidget {
                                 bottom: 10,
                               ),
                               child: Text(
-                                "Debt",
+                                "Schulden",
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme

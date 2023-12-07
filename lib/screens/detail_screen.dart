@@ -25,7 +25,7 @@ class DetailsScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "DETAILS",
+          "EINZELHEITEN",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -44,10 +44,10 @@ class DetailsScreen extends StatelessWidget {
 class MyDynamicTextFieldList extends StatelessWidget {
   final List<String> hintTexts = [
     'Bank',
-    'Account number',
+    'Accountnummer',
     'UIC',
-    'Correspondent Account',
-    'Payment comment',
+    'Korrespondenzkonto',
+    'Zahlungskommentar',
   ];
 
   @override

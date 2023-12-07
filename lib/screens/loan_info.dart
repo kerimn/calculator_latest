@@ -38,7 +38,7 @@ class LoanInfo extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "MORTGAGE INFO",
+          "Hypothekeninformationen",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         actions: [
@@ -93,7 +93,7 @@ class LoanInfo extends StatelessWidget {
                           Positioned(
                             bottom: 15,
                             child: Text(
-                              "Paid",
+                              "Bezahlt",
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium!
@@ -139,7 +139,7 @@ class LoanInfo extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     child: Text(
-                      "Delete Loan",
+                      "Darlehen löschen",
                       textAlign: TextAlign.center,
                       style: Theme.of(context)
                           .textTheme

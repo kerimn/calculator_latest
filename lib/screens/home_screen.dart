@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Text(
-          "YOUR MORTGAGES",
+          "IHRE HYPOTHEKEN",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -53,7 +53,8 @@ class HomeScreen extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(11)),
-                          padding: const EdgeInsets.all(30),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 30),
                           child: Row(
                             children: [
                               SizedBox(
@@ -68,13 +69,13 @@ class HomeScreen extends StatelessWidget {
                                   child: SvgPicture.asset(AppImages.add),
                                 ),
                               ),
-                              const SizedBox(width: 25),
+                              const SizedBox(width: 20),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Add Mortgage Info",
+                                    "Hypothekeninformationen hinzufügen",
                                     textAlign: TextAlign.start,
                                     style: Theme.of(context)
                                         .textTheme
@@ -82,16 +83,19 @@ class HomeScreen extends StatelessWidget {
                                         .copyWith(fontSize: 13),
                                   ),
                                   const SizedBox(height: 6),
-                                  Text(
-                                    'Add information about your mortgage\n by clicking the "Add Loan" button',
-                                    textAlign: TextAlign.start,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleSmall!
-                                        .copyWith(
-                                          fontSize: 11,
-                                          color: Colors.grey,
-                                        ),
+                                  SizedBox(
+                                    width: 250,
+                                    child: Text(
+                                      'Fügen Sie Informationen zu Ihrer Hypothek hinzu,\n indem Sie auf die Schaltfläche „Darlehen hinzufügen“ klicken',
+                                      textAlign: TextAlign.start,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall!
+                                          .copyWith(
+                                            fontSize: 11,
+                                            color: Colors.grey,
+                                          ),
+                                    ),
                                   )
                                 ],
                               ),
@@ -166,7 +170,7 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                       const SizedBox(height: 10),
                                       Text(
-                                        "Your monthly payment: \$${(mortgageItem.loan / 100 * mortgageItem.percentage).toStringAsFixed(2)}",
+                                        "Ihre monatliche Zahlung: \$${(mortgageItem.loan / 100 * mortgageItem.percentage).toStringAsFixed(2)}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall!
@@ -175,7 +179,7 @@ class HomeScreen extends StatelessWidget {
                                                 fontWeight: FontWeight.normal),
                                       ),
                                       Text(
-                                        "Already paid: \$${(mortgageItem.loan / 10).toStringAsFixed(2)}",
+                                        "Bereits bezahlt: \$${(mortgageItem.loan / 10).toStringAsFixed(2)}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall!
@@ -214,7 +218,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 35),
               Text(
-                "Transactions",
+                "Transaktionen",
                 textAlign: TextAlign.start,
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       color: Colors.grey,
@@ -258,7 +262,7 @@ class YourWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "No transactions yet",
+                    "Noch keine Transaktionen",
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
@@ -266,7 +270,7 @@ class YourWidget extends StatelessWidget {
                         .copyWith(fontSize: 13),
                   ),
                   Text(
-                    "In the future, your mortgage payments will be \n displayed here",
+                    "Zukünftig werden Ihre Hypothekenzahlungen \n hier angezeigt",
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Calculator',
+      title: 'Taschenrechner',
       debugShowCheckedModeBanner: false,
       theme: myTheme,
       color: bgColor,

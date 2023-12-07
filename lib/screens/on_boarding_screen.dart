@@ -2,7 +2,6 @@ import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/screens/on_boarding_screen2.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -37,13 +36,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   Column(
                     children: [
                       Text(
-                        "Visualize Your Mortgage Journey",
+                        "Visualisieren Sie Ihre Hypothekenreise",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(height: 17),
                       Text(
-                        "Visualize your mortgage path with our interactive tools. See how different scenarios, interest rates, and down payments impact your mortgage",
+                        "Visualisieren Sie Ihren Hypothekenpfad mit unseren interaktiven Tools. Sehen Sie, wie sich unterschiedliche Szenarien, Zinssätze und Anzahlungen auf Ihre Hypothek auswirken",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                               color: Colors.grey,
@@ -77,7 +76,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ),
                     ),
                     child: Text(
-                      "Continue",
+                      "Weitermachen",
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             color: Colors.white,
                             fontSize: 13,
@@ -95,7 +94,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             _launchURL();
                           },
                           child: Text(
-                            "Terms of Use",
+                            "Nutzungsbedingungen",
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
@@ -127,7 +126,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             _launchURL();
                           },
                           child: Text(
-                            "Privacy Policy",
+                            "Datenschutzrichtlinie",
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!

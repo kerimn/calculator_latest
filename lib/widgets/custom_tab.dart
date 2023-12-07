@@ -30,7 +30,7 @@ class CustomTabWidget extends StatelessWidget {
                   tabs: [
                     Tab(
                       child: Text(
-                        "ANNUITY",
+                        "RENTE",
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!

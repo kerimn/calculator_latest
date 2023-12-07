@@ -38,7 +38,7 @@ class _AddPaymentState extends State<AddPayment> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "ADD PAYMENT",
+          "ZAHLUNG HINZUFÜGEN",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -66,7 +66,7 @@ class _AddPaymentState extends State<AddPayment> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Введите сумму',
+                        hintText: 'Vielen Dank',
                         hintStyle: const TextStyle(fontSize: 20),
                         prefixIcon: Text(
                           '\$ ',
@@ -102,7 +102,7 @@ class _AddPaymentState extends State<AddPayment> {
                     ),
                   ),
                   child: Text(
-                    'ADD LOAN',
+                    'Darlehen hinzufügen',
                     style: Theme.of(context)
                         .textTheme
                         .titleSmall!

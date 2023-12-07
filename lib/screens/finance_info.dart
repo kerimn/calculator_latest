@@ -28,7 +28,7 @@ class FincanceInfoscreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "FINANCE INFO",
+          "FINANZINFORMATIONEN",
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),

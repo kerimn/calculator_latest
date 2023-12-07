@@ -42,7 +42,7 @@ class ButtonsWidget extends StatelessWidget {
                 ),
               ),
               child: Text(
-                "Add Payment",
+                "Zahlung hinzufügen",
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
@@ -73,7 +73,7 @@ class ButtonsWidget extends StatelessWidget {
                 ),
               ),
               child: Text(
-                "Schedule",
+                "Zeitplan",
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
@@ -104,7 +104,7 @@ class ButtonsWidget extends StatelessWidget {
                 ),
               ),
               child: Text(
-                "Details",
+                "Einzelheiten",
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
