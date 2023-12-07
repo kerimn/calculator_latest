@@ -1,9 +1,9 @@
 import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/provider/mortgage_controller.dart';
-import 'package:calculator/screens/home_full_screen.dart';
 import 'package:calculator/widgets/custom_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
@@ -58,29 +58,70 @@ class LoanScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextField(
-                title: "Title",
+              TextField(
                 onChanged: (value) {
                   mortgage.updateNameFieldValue(value);
                 },
+                decoration: InputDecoration(
+                  hintText: "Title",
+                  hintStyle: TextStyle(color: borderColor, fontSize: 12),
+                  contentPadding: const EdgeInsets.only(left: 16),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: borderColor),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: borderColor),
+                  ),
+                ),
               ),
               const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(
-                    child: CustomTextField(
-                        title: "Amount",
-                        onChanged: (value) {
-                          mortgage.updateLoanFieldValue(value);
-                        }),
+                    child: TextField(
+                      onChanged: (value) {
+                        mortgage.updateLoanFieldValue(value);
+                      },
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: InputDecoration(
+                        hintText: "Amount",
+                        hintStyle: TextStyle(color: borderColor, fontSize: 12),
+                        contentPadding: const EdgeInsets.only(left: 16),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: CustomTextField(
-                      title: "Rate",
+                    child: TextField(
                       onChanged: (value) {
                         mortgage.updatePercentageFieldValue(value);
                       },
+                      keyboardType:
+                          TextInputType.numberWithOptions(decimal: true),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: InputDecoration(
+                        hintText: "Rate",
+                        hintStyle: TextStyle(color: borderColor, fontSize: 12),
+                        contentPadding: const EdgeInsets.only(left: 16),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -89,20 +130,50 @@ class LoanScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: CustomTextField(
-                      title: "Term",
+                    child: TextField(
                       onChanged: (value) {
                         mortgage.updateMonthFieldValue(value);
                       },
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: InputDecoration(
+                        hintText: "Term",
+                        hintStyle: TextStyle(color: borderColor, fontSize: 12),
+                        contentPadding: const EdgeInsets.only(left: 16),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: CustomTextField(
-                      title: "First Payment",
+                    child: TextField(
                       onChanged: (value) {
                         mortgage.updateFirstPaymentValue(value);
                       },
+                      keyboardType:
+                          TextInputType.numberWithOptions(decimal: true),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: InputDecoration(
+                        hintText: "First payment",
+                        hintStyle: TextStyle(color: borderColor, fontSize: 12),
+                        contentPadding: const EdgeInsets.only(left: 16),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: borderColor),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -151,35 +222,6 @@ class LoanScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomTextField extends StatelessWidget {
-  final String title;
-
-  final Function(String)? onChanged;
-  const CustomTextField({
-    super.key,
-    required this.title,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        hintText: title,
-        hintStyle: TextStyle(color: borderColor, fontSize: 12),
-        contentPadding: const EdgeInsets.only(left: 16),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
         ),
       ),
     );

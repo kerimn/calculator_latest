@@ -2,6 +2,7 @@ import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/provider/mortgage_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
@@ -59,6 +60,9 @@ class _AddPaymentState extends State<AddPayment> {
                           .titleLarge!
                           .copyWith(fontSize: 60),
                       textAlign: TextAlign.center,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
