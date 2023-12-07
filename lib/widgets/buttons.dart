@@ -1,9 +1,7 @@
-import 'package:calculator/provider/mortgage_controller.dart';
 import 'package:calculator/screens/add_payment.dart';
 import 'package:calculator/screens/detail_screen.dart';
 import 'package:calculator/screens/shedule.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../constants/colors.dart';
 
 class ButtonsWidget extends StatelessWidget {

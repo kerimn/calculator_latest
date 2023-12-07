@@ -2,7 +2,6 @@ import 'package:calculator/constants/colors.dart';
 import 'package:calculator/constants/images.dart';
 import 'package:calculator/data/mortgage_model.dart';
 import 'package:calculator/provider/mortgage_controller.dart';
-import 'package:calculator/screens/add_payment.dart';
 import 'package:calculator/widgets/buttons.dart';
 import 'package:calculator/widgets/half_circular_progress_bar.dart';
 import 'package:calculator/widgets/info_widget.dart';
@@ -18,7 +17,7 @@ class LoanInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var orientation = MediaQuery.of(context).orientation;
-    double paddingTop = (orientation == Orientation.portrait) ? 0 : 80.0;
+    double paddingTop = (orientation == Orientation.portrait) ? 10 : 120.0;
     var mortgage = context.watch<MortgageController>();
 
     return Scaffold(
