@@ -3,6 +3,7 @@ import 'package:calculator/constants/images.dart';
 import 'package:calculator/constants/themes.dart';
 import 'package:calculator/provider/mortgage_controller.dart';
 import 'package:calculator/screens/home_screen.dart';
+import 'package:calculator/screens/my_app.dart';
 import 'package:calculator/screens/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -54,7 +55,7 @@ class _InitalPageState extends State<InitalPage> {
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) => const MyAppPage()),
       );
     }
   }

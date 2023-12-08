@@ -29,214 +29,210 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                mortgage.items.isEmpty
-                    ? GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LoanScreen()),
-                          );
-                        },
-                        child: DottedBorder(
-                          color: Colors.grey,
-                          dashPattern: const [10, 10, 10, 10],
-                          strokeWidth: 0.8,
-                          radius: const Radius.circular(11),
-                          borderType: BorderType.RRect,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(11)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 30),
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 27,
-                                  height: 27,
-                                  child: Container(
-                                    padding: const EdgeInsets.all(4.5),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      color: Colors.grey,
-                                    ),
-                                    child: SvgPicture.asset(AppImages.add),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              mortgage.items.isEmpty
+                  ? GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoanScreen()),
+                        );
+                      },
+                      child: DottedBorder(
+                        color: Colors.grey,
+                        dashPattern: const [10, 10, 10, 10],
+                        strokeWidth: 0.8,
+                        radius: const Radius.circular(11),
+                        borderType: BorderType.RRect,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(11)),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 30),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 27,
+                                height: 27,
+                                child: Container(
+                                  padding: const EdgeInsets.all(4.5),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: Colors.grey,
                                   ),
+                                  child: SvgPicture.asset(AppImages.add),
                                 ),
-                                const SizedBox(width: 20),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Hypothekeninformationen hinzufügen",
+                              ),
+                              const SizedBox(width: 20),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Hypothekeninformationen hinzufügen",
+                                    textAlign: TextAlign.start,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleSmall!
+                                        .copyWith(fontSize: 13),
+                                  ),
+                                  const SizedBox(height: 6),
+                                  SizedBox(
+                                    width: 230,
+                                    child: Text(
+                                      'Fügen Sie Informationen zu Ihrer Hypothek hinzu, indem Sie auf die Schaltfläche „Darlehen hinzufügen“ klicken',
                                       textAlign: TextAlign.start,
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleSmall!
-                                          .copyWith(fontSize: 13),
+                                          .copyWith(
+                                            fontSize: 11,
+                                            color: Colors.grey,
+                                          ),
                                     ),
-                                    const SizedBox(height: 6),
-                                    SizedBox(
-                                      width: 250,
-                                      child: Text(
-                                        'Fügen Sie Informationen zu Ihrer Hypothek hinzu,\n indem Sie auf die Schaltfläche „Darlehen hinzufügen“ klicken',
-                                        textAlign: TextAlign.start,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  : SizedBox(
+                      height: 100,
+                      child: ListView.separated(
+                        itemCount: mortgage.items.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          Mortgage mortgageItem =
+                              mortgage.items.elementAt(index);
+                          return Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              if (index == 0)
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LoanScreen()),
+                                    );
+                                  },
+                                  child: Container(
+                                    height: 125,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                      color: mainColor,
+                                      borderRadius: BorderRadius.circular(11),
+                                    ),
+                                    child: Center(
+                                      child: SvgPicture.asset(
+                                        AppImages.add,
+                                        width: 18,
+                                        height: 18,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              const SizedBox(width: 11),
+                              GestureDetector(
+                                onTap: () {
+                                  print(mortgageItem.id);
+
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoanInfo(
+                                        mortgageItem: mortgageItem,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  color: bgColor,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        mortgageItem.name,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall,
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Text(
+                                        "Ihre monatliche Zahlung: \$${(mortgageItem.loan / 100 * mortgageItem.percentage).toStringAsFixed(2)}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall!
                                             .copyWith(
-                                              fontSize: 11,
-                                              color: Colors.grey,
-                                            ),
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.normal),
                                       ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    : SizedBox(
-                        height: 100,
-                        child: ListView.separated(
-                          itemCount: mortgage.items.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            Mortgage mortgageItem =
-                                mortgage.items.elementAt(index);
-                            return Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                if (index == 0)
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const LoanScreen()),
-                                      );
-                                    },
-                                    child: Container(
-                                      height: 125,
-                                      width: 40,
-                                      decoration: BoxDecoration(
-                                        color: mainColor,
-                                        borderRadius: BorderRadius.circular(11),
+                                      Text(
+                                        "Bereits bezahlt: \$${(mortgageItem.loan / 10).toStringAsFixed(2)}",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .copyWith(
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.normal),
                                       ),
-                                      child: Center(
-                                        child: SvgPicture.asset(
-                                          AppImages.add,
-                                          width: 18,
-                                          height: 18,
+                                      const SizedBox(height: 10),
+                                      const SizedBox(
+                                        width: 150,
+                                        height: 2,
+                                        child: LinearProgressIndicator(
+                                          value: 0.3,
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                                  mainColor),
+                                          backgroundColor: Colors.grey,
                                         ),
                                       ),
-                                    ),
-                                  ),
-                                const SizedBox(width: 11),
-                                GestureDetector(
-                                  onTap: () {
-                                    print(mortgageItem.id);
-        
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => LoanInfo(
-                                          mortgageItem: mortgageItem,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    color: bgColor,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          mortgageItem.name,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall,
-                                        ),
-                                        const SizedBox(height: 10),
-                                        Text(
-                                          "Ihre monatliche Zahlung: \$${(mortgageItem.loan / 100 * mortgageItem.percentage).toStringAsFixed(2)}",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall!
-                                              .copyWith(
-                                                  color: Colors.grey,
-                                                  fontWeight: FontWeight.normal),
-                                        ),
-                                        Text(
-                                          "Bereits bezahlt: \$${(mortgageItem.loan / 10).toStringAsFixed(2)}",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall!
-                                              .copyWith(
-                                                  color: Colors.grey,
-                                                  fontWeight: FontWeight.normal),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        const SizedBox(
-                                          width: 150,
-                                          height: 2,
-                                          child: LinearProgressIndicator(
-                                            value: 0.3,
-                                            valueColor:
-                                                AlwaysStoppedAnimation<Color>(
-                                                    mainColor),
-                                            backgroundColor: Colors.grey,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            );
-                          },
-                          separatorBuilder: (context, index) =>
-                              const SizedBox(width: 11),
-                        ),
+                              ),
+                            ],
+                          );
+                        },
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(width: 11),
                       ),
-                const SizedBox(height: 35),
-                const Divider(
-                  color: Colors.grey,
-                  thickness: 0.5,
-                  height: 1,
-                ),
-                const SizedBox(height: 35),
-                Text(
-                  "Transaktionen",
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Colors.grey,
-                      ),
-                ),
-                const SizedBox(height: 35),
-                Consumer<MortgageController>(
-                  builder: (context, provider, child) {
-                    List<Payment> allPayments = provider.getAllPayments();
-                    print(allPayments);
-        
-                    return YourWidget();
-                  },
-                ),
-              ],
-            ),
+                    ),
+              const SizedBox(height: 35),
+              const Divider(
+                color: Colors.grey,
+                thickness: 0.5,
+                height: 1,
+              ),
+              const SizedBox(height: 35),
+              Text(
+                "Transaktionen",
+                textAlign: TextAlign.start,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      color: Colors.grey,
+                    ),
+              ),
+              const SizedBox(height: 35),
+              Consumer<MortgageController>(
+                builder: (context, provider, child) {
+                  List<Payment> allPayments = provider.getAllPayments();
+                  print(allPayments);
+                  return YourWidget();
+                },
+              ),
+            ],
           ),
         ),
       ),
@@ -245,7 +241,6 @@ class HomeScreen extends StatelessWidget {
 }
 
 String formatDate(DateTime dateTime) {
-  // Use the `intl` package to format the date
   var formatter = DateFormat('dd MM yyyy');
   return formatter.format(dateTime);
 }
@@ -255,7 +250,6 @@ class YourWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     MortgageController provider = Provider.of<MortgageController>(context);
     List<Payment> allPayments = provider.getAllPayments();
-    print(allPayments);
 
     return allPayments.isEmpty
         ? Expanded(
