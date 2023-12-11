@@ -15,18 +15,30 @@ class MortgageController extends ChangeNotifier {
   UnmodifiableListView<Payment> get allPayments =>
       UnmodifiableListView(getAllPayments());
 
+  List<Payment> myCredit(int id) {
+    List<Payment> allPayments = [];
+    for (var mortgage in _items) {
+      if (mortgage.id == id) {
+        allPayments.addAll(mortgage.payment ?? []);
+      }
+    }
+
+    List<Payment> reversedallPayments = allPayments.reversed.toList();
+
+    return reversedallPayments;
+    ;
+  }
+
   List<Payment> getAllPayments() {
     // Create a flat list of all payments across all mortgages
     List<Payment> allPayments = [];
     for (var mortgage in _items) {
       allPayments.addAll(mortgage.payment ?? []);
     }
-    return allPayments;
+    List<Payment> reversedallPayments = allPayments.reversed.toList();
+
+    return reversedallPayments;
   }
-  // final List<double> _payments = [];
-  // final List<int> _indexList = [];
-  // UnmodifiableListView<double> get payments => UnmodifiableListView(_payments);
-  // UnmodifiableListView<int> get indexList => UnmodifiableListView(_indexList);
 
   String nameFieldValue = '';
   String loanFieldValue = '';

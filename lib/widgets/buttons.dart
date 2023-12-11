@@ -58,7 +58,12 @@ class ButtonsWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 // MaterialPageRoute(builder: (context) => const LoanScreen()),
-                MaterialPageRoute(builder: (context) => const ScheduleScreen()),
+                MaterialPageRoute(
+                  builder: (context) => ScheduleScreen(
+                    data: mortgageID,
+                  ),
+                ),
+                // MaterialPageRoute(builder: (context) => const ScheduleScreen()),
               );
             },
             child: Container(

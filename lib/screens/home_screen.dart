@@ -144,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                               const SizedBox(width: 11),
                               GestureDetector(
                                 onTap: () {
-                                  print(mortgageItem.id);
+                                  // print(mortgageItem.id);
 
                                   Navigator.push(
                                     context,
@@ -170,7 +170,7 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                       const SizedBox(height: 10),
                                       Text(
-                                        "Ihre monatliche Zahlung: \$${(mortgageItem.loan / 100 * mortgageItem.percentage).toStringAsFixed(2)}",
+                                        "Bereits bezahlt: \$${(((mortgageItem.loan + (mortgageItem.loan / 100) * mortgageItem.percentage) / mortgageItem.month)).toStringAsFixed(2)}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall!
@@ -179,7 +179,7 @@ class HomeScreen extends StatelessWidget {
                                                 fontWeight: FontWeight.normal),
                                       ),
                                       Text(
-                                        "Bereits bezahlt: \$${(mortgageItem.loan / 10).toStringAsFixed(2)}",
+                                        "Ihre monatliche Zahlung: \$${((mortgageItem.loan / 100) * mortgageItem.percentage).toStringAsFixed(2)}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall!
@@ -228,7 +228,7 @@ class HomeScreen extends StatelessWidget {
               Consumer<MortgageController>(
                 builder: (context, provider, child) {
                   List<Payment> allPayments = provider.getAllPayments();
-                  print(allPayments);
+                  // print(allPayments);
                   return YourWidget();
                 },
               ),
