@@ -245,6 +245,11 @@ String formatDate(DateTime dateTime) {
   return formatter.format(dateTime);
 }
 
+String formatHours(DateTime dateTime) {
+  var formatter = DateFormat('HH:mm');
+  return formatter.format(dateTime);
+}
+
 class YourWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -302,7 +307,7 @@ class YourWidget extends StatelessWidget {
                               ),
                               const SizedBox(height: 7),
                               Text(
-                                '${formatDate(provider.allPayments[index].mortgage!.dateTime)} | 16:09',
+                                '${formatDate(provider.allPayments[index].mortgage!.dateTime)} | ${formatHours(provider.allPayments[index].mortgage!.dateTime)}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleSmall!

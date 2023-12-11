@@ -29,22 +29,33 @@ class CustomTabWidget extends StatelessWidget {
                   ),
                   tabs: [
                     Tab(
-                      child: Text(
-                        "RENTE",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(fontSize: 11),
+                      // zdes napisany customnye stili
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          "RENTE",
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(fontSize: 11),
+                        ),
                       ),
                     ),
                     Tab(
+                      // zdes napisany customnye stili
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
                         child: Text(
-                      'DIFFERENTIAL',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .copyWith(fontSize: 11),
-                    )),
+                          'DIFFERENTIAL',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(fontSize: 11),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

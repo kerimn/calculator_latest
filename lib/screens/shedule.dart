@@ -39,7 +39,7 @@ class ScheduleScreen extends StatelessWidget {
                     defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                     children: [
                       TableRow(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: bgColor,
                         ),
                         children: [

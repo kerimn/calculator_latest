@@ -107,7 +107,7 @@ class LoanScreen extends StatelessWidget {
                         mortgage.updatePercentageFieldValue(value);
                       },
                       keyboardType:
-                          TextInputType.numberWithOptions(decimal: true),
+                          const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -159,7 +159,7 @@ class LoanScreen extends StatelessWidget {
                         mortgage.updateFirstPaymentValue(value);
                       },
                       keyboardType:
-                          TextInputType.numberWithOptions(decimal: true),
+                          const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
