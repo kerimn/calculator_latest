@@ -12,6 +12,29 @@ class MortgageController extends ChangeNotifier {
   int get totalPaymentCount =>
       _items.fold<int>(0, (count, mortgage) => count + (mortgage.paymentCount));
 
+  double circleValue(int id) {
+    double ostatok = 0;
+    double obshiy = 0;
+    for (var mortgage in _items) {
+      if (mortgage.id == id) {
+        ostatok = mortgage.loan;
+        obshiy = mortgage.loan;
+      }
+    }
+
+    for (var mortgage in _items) {
+      if (mortgage.id == id) {
+        for (var _ in mortgage.payment!) {
+          ostatok -=
+              (((mortgage.loan + (mortgage.loan / 100) * mortgage.percentage) /
+                  mortgage.month));
+        }
+      }
+    }
+
+    return ostatok / obshiy;
+  }
+
   UnmodifiableListView<Payment> get allPayments =>
       UnmodifiableListView(getAllPayments());
 
@@ -26,7 +49,6 @@ class MortgageController extends ChangeNotifier {
     List<Payment> reversedallPayments = allPayments.reversed.toList();
 
     return reversedallPayments;
-    ;
   }
 
   List<Payment> getAllPayments() {

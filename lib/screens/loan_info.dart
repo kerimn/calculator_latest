@@ -73,8 +73,8 @@ class LoanInfo extends StatelessWidget {
                           Container(
                             width: MediaQuery.of(context).size.width / 2.2,
                             padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: const HalfCircularProgressBar(
-                              progress: 0.6,
+                            child: HalfCircularProgressBar(
+                              progress: mortgage.circleValue(mortgageItem.id),
                             ),
                           ),
                           Positioned(
