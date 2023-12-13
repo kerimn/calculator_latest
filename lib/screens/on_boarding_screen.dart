@@ -19,7 +19,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       body: Column(
         children: [
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Image.asset(
               AppImages.onBoardingPhoto,
               fit: BoxFit.cover,
@@ -27,7 +27,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: Container(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -40,7 +40,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      const SizedBox(height: 17),
+                      const SizedBox(height: 10),
                       Text(
                         "Visualisieren Sie Ihren Hypothekenpfad mit unseren interaktiven Tools. Sehen Sie, wie sich unterschiedliche Szenarien, Zinssätze und Anzahlungen auf Ihre Hypothek auswirken",
                         textAlign: TextAlign.center,
@@ -51,7 +51,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 8),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -63,7 +63,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        const Size(312, 62),
+                        const Size(312, 50),
                       ),
                       padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
@@ -85,7 +85,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
+                    padding: const EdgeInsets.only(bottom: 8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

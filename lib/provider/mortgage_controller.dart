@@ -24,11 +24,12 @@ class MortgageController extends ChangeNotifier {
 
     for (var mortgage in _items) {
       if (mortgage.id == id) {
-        for (var _ in mortgage.payment!) {
-          ostatok -=
-              (((mortgage.loan + (mortgage.loan / 100) * mortgage.percentage) /
-                  mortgage.month));
-        }
+        if (mortgage.payment != null)
+          for (var _ in mortgage.payment!) {
+            ostatok -= (((mortgage.loan +
+                    (mortgage.loan / 100) * mortgage.percentage) /
+                mortgage.month));
+          }
       }
     }
 

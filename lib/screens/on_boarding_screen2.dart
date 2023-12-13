@@ -14,7 +14,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Image.asset(
               AppImages.onBoardingSecond,
               fit: BoxFit.cover,
@@ -22,7 +22,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: Container(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -35,7 +35,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      const SizedBox(height: 17),
+                      const SizedBox(height: 8),
                       Text(
                         "Dank Ihrer Bewertungen und Rezensionen werden wir jeden Tag besser – das hilft uns, Ihre Konten zu schützen.",
                         textAlign: TextAlign.center,
@@ -46,7 +46,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 8),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -79,7 +79,7 @@ class OnBoardingSecondScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
+                    padding: const EdgeInsets.only(bottom: 10.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
